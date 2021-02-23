@@ -54,7 +54,7 @@ rewardBtns.forEach(button => {
             document.querySelector('.item-2').scrollIntoView(true);
             document.querySelector('.item-2 #reward-25').click();
         } else if (button.classList.contains('item-2-reward')) {
-            document.querySelector('.item-3').scrollIntoView(true);
+            document.querySelector('.item-2').scrollIntoView(true);
             document.querySelector('.item-3 #reward-75').click();
         }
     });
