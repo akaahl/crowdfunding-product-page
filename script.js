@@ -1,6 +1,7 @@
 const bookmarkBtn = document.getElementById('bookmark-project-btn');
 const bookmarkText = document.getElementById('bookmark-text');
 const backProjectBtn = document.getElementById('back-project-btn');
+const innerContainer = document.getElementById('inner-container');
 const modalContainer = document.getElementById('modal-container');
 const modalCloseBtn = document.getElementById('modal-close-btn');
 const pledgeRadios = document.querySelectorAll('.pledge-radio');
@@ -30,6 +31,7 @@ pledgeRadios.forEach(button => {
     button.addEventListener('click', e => {
         pledgeRadios.forEach(btn => {
             let sectionElement = btn.parentElement.parentElement.parentElement.parentElement;
+            console.log(sectionElement)
             if (btn.checked) {
                 sectionElement.classList.add('selected');
             } else {
@@ -51,7 +53,7 @@ rewardBtns.forEach(button => {
         modalContainer.classList.add('show');
         
         if (button.classList.contains('item-1-reward')) {
-            document.querySelector('.item-2').scrollIntoView(true);
+            document.querySelector('.item-1').scrollIntoView(true);
             document.querySelector('.item-2 #reward-25').click();
         } else if (button.classList.contains('item-2-reward')) {
             document.querySelector('.item-2').scrollIntoView(true);
@@ -65,6 +67,9 @@ pledgeSubmitBtn.forEach(button => {
         e.preventDefault();
         modalContainer.classList.remove('show');
         thankYouContainer.classList.add('show');
+        
+        const element = innerContainer.getBoundingClientRect().top - ~50;
+        window.scrollTo({ top: element, behavior: 'smooth' })
     })
 })
 
