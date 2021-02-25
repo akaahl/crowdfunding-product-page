@@ -1,9 +1,13 @@
 const bookmarkBtn = document.getElementById('bookmark-project-btn');
 const bookmarkText = document.getElementById('bookmark-text');
 const backProjectBtn = document.getElementById('back-project-btn');
+const hamburgerIcon = document.getElementById('hamburger-icon');
+const closeHamburger = document.getElementById('close-hamburger');
 const innerContainer = document.getElementById('inner-container');
+const mobileNavBar = document.getElementById('mobile-nav-bar');
 const modalContainer = document.getElementById('modal-container');
 const modalCloseBtn = document.getElementById('modal-close-btn');
+const navBar = document.getElementById('nav-bar');
 const pledgeRadios = document.querySelectorAll('.pledge-radio');
 const pledgeSubmitBtn = document.querySelectorAll('.pledge-submit-btn');
 const rewardBtns = document.querySelectorAll('.reward-btn');
@@ -68,7 +72,7 @@ pledgeSubmitBtn.forEach(button => {
         modalContainer.classList.remove('show');
         thankYouContainer.classList.add('show');
         
-        const element = innerContainer.getBoundingClientRect().top - ~50;
+        const element = innerContainer.getBoundingClientRect().top + window.pageYOffset + (-110) ;
         window.scrollTo({ top: element, behavior: 'smooth' })
     })
 })
@@ -76,4 +80,14 @@ pledgeSubmitBtn.forEach(button => {
 thankYouBtn.addEventListener('click', () => {
     thankYouContainer.classList.remove('show');
 });
+
+hamburgerIcon.addEventListener('click', () => {
+    mobileNavBar.classList.add('show');
+    navBar.classList.add('active');
+});
+
+closeHamburger.addEventListener('click', () => {
+    mobileNavBar.classList.remove('show');
+    navBar.classList.remove('active');
+})
 
