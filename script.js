@@ -48,8 +48,6 @@ pledgeRadios.forEach(button => {
             thankYouContainer.classList.add('show');
         }
     });
-
-    
 });
 
 rewardBtns.forEach(button => {
